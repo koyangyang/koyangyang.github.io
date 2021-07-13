@@ -1,0 +1,329 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux帮助信息命令指北 | 一只会敲代码的Sheep</title><meta name="keywords" content="Wiki,Linux"><meta name="author" content="Koyang"><meta name="copyright" content="Koyang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. 查看 Linux 命令帮助信息的要点 查看 Shell 内部命令的帮助信息 - 使用 help 查看命令的简要说明 - 使用 whatis 查看命令的详细说明 - 使用 info 查看命令的位置 - 使用 which 定位指令的二进制程序、源代码文件和 man 手册页等相关文件的路径 - 使用 whereis 查看命令的帮助手册（包含说明、用法等信息） - 使用 man 只记得部分命令关键字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux帮助信息命令指北">
+<meta property="og:url" content="http://yoursite.com/archives/linux1.html">
+<meta property="og:site_name" content="一只会敲代码的Sheep">
+<meta property="og:description" content="1. 查看 Linux 命令帮助信息的要点 查看 Shell 内部命令的帮助信息 - 使用 help 查看命令的简要说明 - 使用 whatis 查看命令的详细说明 - 使用 info 查看命令的位置 - 使用 which 定位指令的二进制程序、源代码文件和 man 手册页等相关文件的路径 - 使用 whereis 查看命令的帮助手册（包含说明、用法等信息） - 使用 man 只记得部分命令关键字">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/tagd.jpg">
+<meta property="article:published_time" content="2020-07-11T02:02:30.000Z">
+<meta property="article:modified_time" content="2021-07-13T03:33:10.589Z">
+<meta property="article:author" content="Koyang">
+<meta property="article:tag" content="Wiki">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/tagd.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/archives/linux1"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="iMDciGxUIK6RfzZylWsqU4HnWGOQMT6YBQLTBiEStss"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b05f9b7e6813b1735ed543d88d9a988a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177280842-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177280842-1');
+</script><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;88165403cab4477eaf518e6ad43cc8f8&quot;}"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-13 11:33:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="一只会敲代码的Sheep" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/HandsomeKY/picture/tagd.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">一只会敲代码的Sheep</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux帮助信息命令指北</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-11T02:02:30.000Z" title="发表于 2020-07-11 10:02:30">2020-07-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-13T03:33:10.589Z" title="更新于 2021-07-13 11:33:10">2021-07-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="1-查看-Linux-命令帮助信息的要点"><a href="#1-查看-Linux-命令帮助信息的要点" class="headerlink" title="1. 查看 Linux 命令帮助信息的要点"></a>1. 查看 Linux 命令帮助信息的要点</h2><ul>
+<li>查看 Shell 内部命令的帮助信息 - 使用 <a href="#help">help</a></li>
+<li>查看命令的简要说明 - 使用 <a href="#whatis">whatis</a></li>
+<li>查看命令的详细说明 - 使用 <a href="#info">info</a></li>
+<li>查看命令的位置 - 使用 <a href="#which">which</a></li>
+<li>定位指令的二进制程序、源代码文件和 man 手册页等相关文件的路径 - 使用 <a href="#whereis">whereis</a></li>
+<li>查看命令的帮助手册（包含说明、用法等信息） - 使用 <a href="#man">man</a></li>
+<li>只记得部分命令关键字 - 使用 man -k</li>
+</ul>
+<h2 id="2-命令常见用法"><a href="#2-命令常见用法" class="headerlink" title="2. 命令常见用法"></a>2. 命令常见用法</h2><h3 id="2-1-help"><a href="#2-1-help" class="headerlink" title="2.1. help"></a>2.1. help</h3><p><strong>help命令</strong>用于显示shell内部命令的帮助信息。help命令只能显示shell内部的命令帮助信息。而对于外部命令的帮助信息只能使用man或者info命令查看。</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><pre><code>help(选项)(参数)</code></pre>
+<h4 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h4><pre><code>-s：输出短格式的帮助信息。仅包括命令格式。</code></pre>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><p>内部命令：指定需要显示帮助信息的shell内部命令。</p>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>使用help命令显示shell内部shopt命令的帮助信息，输入如下命令：</p>
+<pre><code>help shopt                #获取shopt命令的帮助信息
+shopt: shopt [-pqsu] [-o long-option] optname [optname...]
+    Toggle the values of variables controlling optional behavior.
+    The -s flag means to enable (set) each OPTNAME; the -u flag
+    unsets each OPTNAME.  The -q flag suppresses output; the exit
+    status indicates whether each OPTNAME is set or unset.  The -o
+    option restricts the OPTNAMEs to those defined for use with
+    `set -o&#39;.  With no options, or with the -p option, a list of all
+    settable options is displayed, with an indication of whether or
+    not each is set.</code></pre>
+<h3 id="2-2-whatis"><a href="#2-2-whatis" class="headerlink" title="2.2. whatis"></a>2.2. whatis</h3><p><strong>whatis命令</strong>是用于查询一个命令执行什么功能，并将查询结果打印到终端上。</p>
+<p>whatis命令在用<code>catman -w</code>命令创建的数据库中查找command参数指定的命令、系统调用、库函数或特殊文件名。whatis命令显示手册部分的页眉行。然后可以发出man命令以获取附加的信息。whatis命令等同于使用<code>man -f</code>命令。</p>
+<h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><pre><code>whatis</code></pre>
+<h4 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h4><pre><code>[root@localhost ~]# whatis ls
+ls                   (1)  - list directory contents
+ls                   (1p)  - list directory contents
+
+[root@localhost ~]# whatis cp
+cp                   (1)  - copy files and directories
+cp                   (1p)  - copy files
+
+[root@localhost ~]# whatis chown
+chown                (1)  - change file owner and group
+chown                (1p)  - change the file ownership
+chown                (2)  - change ownership of a file
+chown                (3p)  - change owner and group of a file
+
+[root@localhost ~]# whatis man
+man                  (1)  - format and display the on-line manual pages
+man                  (1p)  - display system documentation
+man                  (7)  - macros to format man pages
+man                 (rpm) - A set of documentation tools: man, apropos and whatis.
+man-pages           (rpm) - Man (manual) pages from the Linux Documentation Project.
+man.config [man]     (5)  - configuration data for man</code></pre>
+<h3 id="2-3-info"><a href="#2-3-info" class="headerlink" title="2.3. info"></a>2.3. info</h3><p><strong>info命令</strong>是Linux下info格式的帮助指令。</p>
+<p>就内容来说，info页面比man page编写得要更好、更容易理解，也更友好，但man page使用起来确实要更容易得多。一个man page只有一页，而info页面几乎总是将它们的内容组织成多个区段（称为节点），每个区段也可能包含子区段（称为子节点）。理解这个命令的窍门就是不仅要学习如何在单独的Info页面中浏览导航，还要学习如何在节点和子节点之间切换。可能刚开始会一时很难在info页面的节点之间移动和找到你要的东西，真是具有讽刺意味：原本以为对于新手来说，某个东西比man命令会更好些，但实际上学习和使用起来更困难。</p>
+<p><code>info(选项)(参数)</code></p>
+<h4 id="选项-1"><a href="#选项-1" class="headerlink" title="选项"></a>选项</h4><pre><code>-d：添加包含info格式帮助文档的目录；
+-f：指定要读取的info格式的帮助文档；
+-n：指定首先访问的info帮助文件的节点；
+-o：输出被选择的节点内容到指定文件。</code></pre>
+<h4 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h4><p>帮助主题：指定需要获得帮助的主题，可以是指令、函数以及配置文件。</p>
+<h4 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h4><p>在info后面输入命令的名称就可以查看该命令的info帮助文档了：</p>
+<pre><code>info info</code></pre>
+<p>面介绍一下它的几个常用快捷键。</p>
+<pre><code>?键：它就会显示info的常用快捷键。
+N键：显示（相对于本节点的）下一节点的文档内容。
+P键：显示（相对于本节点的）前一节点的文档内容。
+U键：进入当前命令所在的主题。
+M键：敲M键后输入命令的名称就可以查看该命令的帮助文档了。
+G键：敲G键后输入主题名称，进入该主题。
+L键：回到上一个访问的页面。
+SPACE键：向前滚动一页。
+BACKUP或DEL键：向后滚动一页。
+Q：退出info。</code></pre>
+<p><strong>命令</strong></p>
+<pre><code>？     显示帮助窗口
+
+在帮助窗口中：
+Ctrl-x 0          关闭帮助窗口
+Ctrl-x Ctrl-c    关闭整个 Info
+
+q      退出 info
+n      打开与本 Node 关联的下一个 Node
+p      打开与本 Node 关联的前一个 Node
+u      打开与本 Node 关联的上一个 Node
+l      回到上一次访问的 Node
+m或g   选择一个菜单项（Node 的名字）
+       输入指定菜单的名字后按回车，打开指定菜单项关联的 Node
+空格键 下一页（PageDown 也可以，下一页从当前页的最后两行开始算起）
+       下一个 Node （若当前页在 Node 文档的末尾）
+Del 键 上一页（PageUp 也可以，上一页从当前页的开始两行开始算起）
+       上一个 Node （若当前页 Node 文档的开始）
+
+b 或 t 或 Home   文档的开始（b 是 begining 的意思）
+e 或 End         文档的末尾（b 是 ending 的意思）
+Ctrl-l    刷新当前页，若当前文档显示情况有问题时
+Ctrl-g    取消所键入的指令</code></pre>
+<h3 id="2-4-which"><a href="#2-4-which" class="headerlink" title="2.4. which"></a>2.4. which</h3><p><strong>which命令</strong>用于查找并显示给定命令的绝对路径，环境变量PATH中保存了查找命令时需要遍历的目录。which指令会在环境变量$PATH设置的目录里查找符合条件的文件。也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
+<h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><pre><code>which(选项)(参数)</code></pre>
+<h4 id="选项-2"><a href="#选项-2" class="headerlink" title="选项"></a>选项</h4><pre><code>-n&lt;文件名长度&gt;：制定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名；
+-p&lt;文件名长度&gt;：与-n参数相同，但此处的&lt;文件名长度&gt;包含了文件的路径；
+-w：指定输出时栏位的宽度；
+-V：显示版本信息。</code></pre>
+<h4 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h4><p>指令名：指令名列表。</p>
+<h4 id="实例-3"><a href="#实例-3" class="headerlink" title="实例"></a>实例</h4><p>查找文件、显示命令路径：</p>
+<pre><code>[root@localhost ~]# which pwd
+/bin/pwd
+
+[root@localhost ~]#  which adduser
+/usr/sbin/adduser</code></pre>
+<p>说明：which是根据使用者所配置的 PATH 变量内的目录去搜寻可运行档的！所以，不同的 PATH 配置内容所找到的命令当然不一样的！</p>
+<h3 id="2-5-whereis"><a href="#2-5-whereis" class="headerlink" title="2.5. whereis"></a>2.5. whereis</h3><p><strong>whereis命令</strong>用来定位指令的二进制程序、源代码文件和<a href="#man">man</a>手册页等相关文件的路径。</p>
+<p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息。</p>
+<p>和<a href="#find">find</a>相比，whereis查找的速度非常快，这是因为linux系统会将 系统内的所有文件都记录在一个数据库文件中，当使用whereis和下面即将介绍的<a href="#locate">locate</a>时，会从数据库中查找数据，而不是像find命令那样，通 过遍历硬盘来查找，效率自然会很高。 但是该数据库文件并不是实时更新，默认情况下时一星期更新一次，因此，我们在用whereis和locate 查找文件时，有时会找到已经被删除的数据，或者刚刚建立文件，却无法查找到，原因就是因为数据库文件没有被更新。</p>
+<h4 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h4><pre><code>whereis(选项)(参数)</code></pre>
+<h4 id="选项-3"><a href="#选项-3" class="headerlink" title="选项"></a>选项</h4><pre><code>-b：只查找二进制文件；
+-B&lt;目录&gt;：只在设置的目录下查找二进制文件；
+-f：不显示文件名前的路径名称；
+-m：只查找说明文件；
+-M&lt;目录&gt;：只在设置的目录下查找说明文件；
+-s：只查找原始代码文件；
+-S&lt;目录&gt;只在设置的目录下查找原始代码文件；
+-u：查找不包含指定类型的文件。</code></pre>
+<h4 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h4><p>指令名：要查找的二进制程序、源文件和man手册页的指令名。</p>
+<h4 id="实例-4"><a href="#实例-4" class="headerlink" title="实例"></a>实例</h4><p>将相关的文件都查找出来</p>
+<pre><code>[root@localhost ~]# whereis tomcat
+tomcat:
+
+[root@localhost ~]# whereis svn
+svn: /usr/bin/svn /usr/local/svn /usr/share/man/man1/svn.1.gz</code></pre>
+<p>说明：tomcat没安装，找不出来，svn安装找出了很多相关文件</p>
+<p>只将二进制文件查找出来 </p>
+<pre><code>[root@localhost ~]# whereis -b svn
+svn: /usr/bin/svn /usr/local/svn
+
+[root@localhost ~]# whereis -m svn
+svn: /usr/share/man/man1/svn.1.gz
+
+[root@localhost ~]# whereis -s svn
+svn:</code></pre>
+<p>说明：<code>whereis -m svn</code>查出说明文档路径，<code>whereis -s svn</code>找source源文件。</p>
+<h3 id="2-6-man"><a href="#2-6-man" class="headerlink" title="2.6. man"></a>2.6. man</h3><p><strong>man命令</strong>是Linux下的帮助指令，通过man指令可以查看Linux中的指令帮助、配置文件帮助和编程帮助等信息。</p>
+<h4 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h4><pre><code>man(选项)(参数)</code></pre>
+<h4 id="选项-4"><a href="#选项-4" class="headerlink" title="选项"></a>选项</h4><pre><code>-a：在所有的man帮助手册中搜索；
+-f：等价于whatis指令，显示给定关键字的简短描述信息；
+-P：指定内容时使用分页程序；
+-M：指定man手册搜索的路径。</code></pre>
+<h4 id="参数-4"><a href="#参数-4" class="headerlink" title="参数"></a>参数</h4><ul>
+<li>数字：指定从哪本man手册中搜索帮助；</li>
+<li>关键字：指定要搜索帮助的关键字。</li>
+</ul>
+<p>示例：</p>
+<pre><code>$ man date # 查看 date 命令的帮助手册
+$ man 3 printf # 查看 printf 命令的帮助手册中的第 3 类
+$ man -k keyword # 根据命令中部分关键字来查询命令</code></pre>
+<h5 id="2-6-1-man-要点"><a href="#2-6-1-man-要点" class="headerlink" title="2.6.1. man 要点"></a>2.6.1. man 要点</h5><p>在 man 的帮助手册中，可以使用 page up 和 page down 来上下翻页。</p>
+<p>man 的帮助手册中，将帮助文档分为了 9 个类别，对于有的关键字可能存在多个类别中， 我们就需要指定特定的类别来查看；（一般我们查询 bash 命令，归类在 1 类中）。</p>
+<p>man 页面的分类(常用的是分类 1 和分类 3)：</p>
+<ol>
+<li>可执行程序或 shell 命令</li>
+<li>系统调用(内核提供的函数)</li>
+<li>库调用(程序库中的函数)</li>
+<li>特殊文件(通常位于 /dev)</li>
+<li>文件格式和规范，如 /etc/passwd</li>
+<li>游戏</li>
+<li>杂项(包括宏包和规范，如 man(7)，groff(7))</li>
+<li>系统管理命令(通常只针对 root 用户)</li>
+<li>内核例程 [非标准]</li>
+</ol>
+<p>前面说到使用 whatis 会显示命令所在的具体的文档类别，我们学习如何使用它</p>
+<pre><code>$ whatis printf
+printf (1) - format and print data
+printf (1p) - write formatted output
+printf (3) - formatted output conversion
+printf (3p) - print formatted output
+printf [builtins](1) - bash built-in commands, see bash(1)</code></pre>
+<p>我们看到 printf 在分类 1 和分类 3 中都有；分类 1 中的页面是命令操作及可执行文件的帮助；而 3 是常用函数库说明；如果我们想看的是 C 语言中 printf 的用法，可以指定查看分类 3 的帮助：</p>
+<pre><code>$ man 3 printf</code></pre>
+<h3 id="Linux命令查询"><a href="#Linux命令查询" class="headerlink" title="Linux命令查询"></a>Linux命令查询</h3><p><a target="_blank" rel="noopener" href="https://man.linuxde.net/">传送门</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Koyang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/archives/linux1.html">http://yoursite.com/archives/linux1.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">一只会敲代码的Sheep</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Wiki/">Wiki</a><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/tagd.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechatpay.png" target="_blank"><img class="post-qr-code-img" src="/img/wechatpay.png" alt="Wechat"/></a><div class="post-qr-code-desc">Wechat</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="Alipay"/></a><div class="post-qr-code-desc">Alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/git.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">常用的Git命令</div></div></a></div><div class="next-post pull-right"><a href="/archives/linuxhexo.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/hexo.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">linux下搭建Hexo</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/cpfm.html" title="Clash Premium For Magisk的使用"><img class="cover" src="https://gitee.com/koyangyang/pictures/raw/master/20201011100742.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-11</div><div class="title">Clash Premium For Magisk的使用</div></div></a></div><div><a href="/archives/git.html" title="常用的Git命令"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-12</div><div class="title">常用的Git命令</div></div></a></div><div><a href="/archives/markdown.html" title="Markdown写作指北"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/random1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-20</div><div class="title">Markdown写作指北</div></div></a></div><div><a href="/archives/re.html" title="使用正则表达式"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/archive.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-08</div><div class="title">使用正则表达式</div></div></a></div><div><a href="/archives/askquestions.html" title="《提问的智慧》"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cage.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-24</div><div class="title">《提问的智慧》</div></div></a></div><div><a href="/archives/elementaryos.html" title="一个精致的Linux系统elementary OS"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/random3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-29</div><div class="title">一个精致的Linux系统elementary OS</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Koyang</div><div class="author-info__description">分享最近正在研究的东西</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/koyangyang"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/koyangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mr.koyangyang@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://t.me/Koyangyang" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechat.png" target="_blank" title="Wechat"><i class="fab fa-weixin"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1137451142&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请多看看右上角顶栏的不同页面</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8B-Linux-%E5%91%BD%E4%BB%A4%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF%E7%9A%84%E8%A6%81%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">1. 查看 Linux 命令帮助信息的要点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">2. 命令常见用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-help"><span class="toc-number">2.1.</span> <span class="toc-text">2.1. help</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">2.1.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E9%A1%B9"><span class="toc-number">2.1.2.</span> <span class="toc-text">选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-number">2.1.3.</span> <span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.1.4.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-whatis"><span class="toc-number">2.2.</span> <span class="toc-text">2.2. whatis</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-info"><span class="toc-number">2.3.</span> <span class="toc-text">2.3. info</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E9%A1%B9-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-1"><span class="toc-number">2.3.2.</span> <span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B-2"><span class="toc-number">2.3.3.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-which"><span class="toc-number">2.4.</span> <span class="toc-text">2.4. which</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="toc-number">2.4.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E9%A1%B9-2"><span class="toc-number">2.4.2.</span> <span class="toc-text">选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-2"><span class="toc-number">2.4.3.</span> <span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B-3"><span class="toc-number">2.4.4.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-whereis"><span class="toc-number">2.5.</span> <span class="toc-text">2.5. whereis</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="toc-number">2.5.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E9%A1%B9-3"><span class="toc-number">2.5.2.</span> <span class="toc-text">选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-3"><span class="toc-number">2.5.3.</span> <span class="toc-text">参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B-4"><span class="toc-number">2.5.4.</span> <span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-man"><span class="toc-number">2.6.</span> <span class="toc-text">2.6. man</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-4"><span class="toc-number">2.6.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%89%E9%A1%B9-4"><span class="toc-number">2.6.2.</span> <span class="toc-text">选项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-4"><span class="toc-number">2.6.3.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-6-1-man-%E8%A6%81%E7%82%B9"><span class="toc-number">2.6.3.1.</span> <span class="toc-text">2.6.1. man 要点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%91%BD%E4%BB%A4%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.7.</span> <span class="toc-text">Linux命令查询</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序学习(今日天气)"/></a><div class="content"><a class="title" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)">微信小程序学习(今日天气)</a><time datetime="2021-07-12T01:45:49.000Z" title="发表于 2021-07-12 09:45:49">2021-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/wterminal.html" title="Windows Terminal的美化"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/archive.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows Terminal的美化"/></a><div class="content"><a class="title" href="/archives/wterminal.html" title="Windows Terminal的美化">Windows Terminal的美化</a><time datetime="2021-07-11T01:45:49.000Z" title="发表于 2021-07-11 09:45:49">2021-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/pyqt5.html" title="PYQT5的安装配置使用"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PYQT5的安装配置使用"/></a><div class="content"><a class="title" href="/archives/pyqt5.html" title="PYQT5的安装配置使用">PYQT5的安装配置使用</a><time datetime="2021-03-27T13:02:30.000Z" title="发表于 2021-03-27 21:02:30">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+Github Actions自动化部署"/></a><div class="content"><a class="title" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署">Hexo+Github Actions自动化部署</a><time datetime="2021-03-05T02:28:32.000Z" title="发表于 2021-03-05 10:28:32">2021-03-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/javaexe.html" title="Java打包程序.exe"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/u=875933571,2598587787&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java打包程序.exe"/></a><div class="content"><a class="title" href="/archives/javaexe.html" title="Java打包程序.exe">Java打包程序.exe</a><time datetime="2021-01-09T02:28:32.000Z" title="发表于 2021-01-09 10:28:32">2021-01-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Koyang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

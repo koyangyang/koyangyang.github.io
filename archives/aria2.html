@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Rclone+aria2实现OneDrive高速离线下载 | 一只会敲代码的Sheep</title><meta name="keywords" content="教程,aria2"><meta name="author" content="Koyang"><meta name="copyright" content="Koyang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="对于一些大容量网盘，如OneDrive，Google云端硬盘等本身是不自带离线下载，现在我们可以借助第三方工具aria2实现高速多线程离线下载，如有Linux用户同样适用于多线程本地下载。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rclone+aria2实现OneDrive高速离线下载">
+<meta property="og:url" content="http://yoursite.com/archives/aria2.html">
+<meta property="og:site_name" content="一只会敲代码的Sheep">
+<meta property="og:description" content="对于一些大容量网盘，如OneDrive，Google云端硬盘等本身是不自带离线下载，现在我们可以借助第三方工具aria2实现高速多线程离线下载，如有Linux用户同样适用于多线程本地下载。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/tagd.jpg">
+<meta property="article:published_time" content="2020-07-07T01:12:36.000Z">
+<meta property="article:modified_time" content="2021-07-13T03:33:10.585Z">
+<meta property="article:author" content="Koyang">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="aria2">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/tagd.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/archives/aria2"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="iMDciGxUIK6RfzZylWsqU4HnWGOQMT6YBQLTBiEStss"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b05f9b7e6813b1735ed543d88d9a988a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177280842-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177280842-1');
+</script><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;88165403cab4477eaf518e6ad43cc8f8&quot;}"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-13 11:33:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="一只会敲代码的Sheep" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/HandsomeKY/picture/tagd.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">一只会敲代码的Sheep</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Rclone+aria2实现OneDrive高速离线下载</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-07-07T01:12:36.000Z" title="发表于 2020-07-07 09:12:36">2020-07-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-13T03:33:10.585Z" title="更新于 2021-07-13 11:33:10">2021-07-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>对于一些大容量网盘，如OneDrive，Google云端硬盘等本身是不自带离线下载，现在我们可以借助第三方工具aria2实现高速多线程离线下载，如有Linux用户同样适用于多线程本地下载。</p>
+<a id="more"></a>
+
+<p>先附上一张效果图：</p>
+<p><img src="http://p.ananas.chaoxing.com/star3/origin/e15213cc87391633c6a82575db9d9fd4.png"></p>
+<h2 id="准备材料"><a href="#准备材料" class="headerlink" title="准备材料"></a>准备材料</h2><ol>
+<li>装有Linux系统的电脑，推荐Debian/Ubuntu(大流量VPS更好)</li>
+<li>懂点SSH连接</li>
+</ol>
+<h2 id="安装并配置aria2"><a href="#安装并配置aria2" class="headerlink" title="安装并配置aria2"></a>安装并配置aria2</h2><p>这里推荐<a target="_blank" rel="noopener" href="https://github.com/P3TERX/aria2.sh">P3TERX</a>大的一键脚本</p>
+<pre><code class="Shell">wget -N git.io/aria2.sh &amp;&amp; chmod +x aria2.sh &amp;&amp; ./aria2.sh</code></pre>
+<p>这里因为<a target="_blank" rel="noopener" href="https://github.com/P3TERX/aria2.sh">P3TERX</a>大已经配置好了aria2，目前已经是速度最快和BT trackers最多的配置，如果喜欢自定义配置可以参考aria2官方提供的安装脚本</p>
+<p><strong>如果你使用的Linux系统，至此已经完成了Linux本地下载器的搭建</strong></p>
+<h2 id="挂载Rclone"><a href="#挂载Rclone" class="headerlink" title="挂载Rclone"></a>挂载Rclone</h2><h3 id="客户端授权"><a href="#客户端授权" class="headerlink" title="客户端授权"></a>客户端授权</h3><p>在本地Windows电脑上下载rclone，下载地址：<a target="_blank" rel="noopener" href="https://rclone.org/downloads/">https://rclone.org/downloads/</a>,解压文件夹，在此文件夹打开cmd命令，输入</p>
+<pre><code class="cmd">rclone authorize &quot;onedrive&quot;</code></pre>
+<p>然后会弹出浏览器登陆即可，在返回cmd</p>
+<pre><code class="cmd">C:\Users\Administrator&gt;cd /d d:\rclone
+
+d:\rclone&gt;rclone authorize &quot;onedrive&quot;
+2018/01/23 20:28:56 NOTICE: Config file &quot;C:\\Users\\Administrator\\.config\\rclo
+ne\\rclone.conf&quot; not found - using defaults
+Choose OneDrive account type?
+ * Say b for a OneDrive business account
+ * Say p for a personal OneDrive account
+b) Business
+p) Personal
+b/p&gt; p  #这里选择个人版，你想挂载Business就选择b
+If your browser doesn&#39;t open automatically go to the following link: http://127.
+0.0.1:53682/auth  #接下来会弹出浏览器，要求你登录账号进行授权
+Log in and authorize rclone for access
+Waiting for code...
+Got code
+Paste the following into your remote machine ---&gt;
+&#123;&quot;access_token&quot;:&quot;xxxx&quot;&#125;  #请复制&#123;xx&#125;整个内容，后面需要用到
+&lt;---End paste</code></pre>
+<h3 id="安装Rclone"><a href="#安装Rclone" class="headerlink" title="安装Rclone"></a>安装Rclone</h3><ol>
+<li>安装Rclone<br>用SSH连接Debian/Ubuntu，输入Rclone官方给的安装脚本<pre><code class="Shell">wget https://www.moerats.com/usr/shell/rclone_debian.sh &amp;&amp; bash rclone_debian.sh</code></pre>
+</li>
+<li>初始化配置<br>输入<pre><code class="Shell">rclone config</code></pre>
+</li>
+<li>按注释输入<pre><code class="Shell">n) New remote
+s) Set configuration password
+q) Quit config
+n/s/q&gt; n
+name&gt; Rats  #随便填，后面要用到
+Type of storage to configure.
+Choose a number from below, or type in your own value
+1 / Amazon Drive
+ \ &quot;amazon cloud drive&quot;
+2 / Amazon S3 (also Dreamhost, Ceph, Minio)
+ \ &quot;s3&quot;
+3 / Backblaze B2
+ \ &quot;b2&quot;
+4 / Box
+ \ &quot;box&quot;
+5 / Cache a remote
+ \ &quot;cache&quot;
+6 / Dropbox
+ \ &quot;dropbox&quot;
+7 / Encrypt/Decrypt a remote
+ \ &quot;crypt&quot;
+8 / FTP Connection
+ \ &quot;ftp&quot;
+9 / Google Cloud Storage (this is not Google Drive)
+ \ &quot;google cloud storage&quot;
+10 / Google Drive
+ \ &quot;drive&quot;
+11 / Hubic
+ \ &quot;hubic&quot;
+12 / Local Disk
+ \ &quot;local&quot;
+13 / Microsoft Azure Blob Storage
+ \ &quot;azureblob&quot;
+14 / Microsoft OneDrive
+ \ &quot;onedrive&quot;
+15 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)
+ \ &quot;swift&quot;
+16 / Pcloud
+ \ &quot;pcloud&quot;
+17 / QingCloud Object Storage
+ \ &quot;qingstor&quot;
+18 / SSH/SFTP Connection
+ \ &quot;sftp&quot;
+19 / Webdav
+ \ &quot;webdav&quot;
+20 / Yandex Disk
+ \ &quot;yandex&quot;
+21 / http Connection
+ \ &quot;http&quot;
+Storage&gt; 14  #选择14，Microsoft OneDrive，，注意该序列号会随时变化，看清楚再填
+Microsoft App Client Id - leave blank normally.
+client_id&gt;  #留空 
+Microsoft App Client Secret - leave blank normally.
+client_secret&gt;  #留空 
+Remote config
+Choose OneDrive account type?
+* Say b for a OneDrive business account
+* Say p for a personal OneDrive account
+b) Business
+p) Personal
+b/p&gt; p  #这里选择个人版，你想挂载Business就选择b
+Use auto config?
+* Say Y if not sure
+* Say N if you are working on a remote or headless machine
+y) Yes
+n) No
+y/n&gt; n  #选择n
+For this to work, you will need rclone available on a machine that has a web browser available.
+Execute the following on your machine:
+  rclone authorize &quot;onedrive&quot;
+Then paste the result below:
+result&gt; &#123;&quot;access_token&quot;:&quot;&quot;&#125;  #输入之前在客户端授权的内容</code></pre>
+</li>
+</ol>
+<hr>
+<p>[Rats]<br>client_id =<br>client_secret =<br>token = {“access_token”:””}</p>
+<hr>
+<p>y) Yes this is OK<br>e) Edit this remote<br>d) Delete this remote<br>y/e/d&gt; y  选择y<br>Current remotes:</p>
+<p>Name                 Type<br>====                 ====<br>Rats                 onedrive</p>
+<p>e) Edit existing remote<br>n) New remote<br>d) Delete remote<br>r) Rename remote<br>c) Copy remote<br>s) Set configuration password<br>q) Quit config<br>e/n/d/r/c/s/q&gt; q  #选择q退出</p>
+<pre><code>
+## 配置自动上传脚本
+
+- 输入nano /root/.aria2c/upload.sh打开自动上传脚本进行编辑
+```nano
+# Rclone 配置时填写的网盘名(name)
+DRIVE_NAME=&#39;Onedrive&#39;
+# 网盘目录。即上传目标路径，留空为网盘根目录，末尾不要有斜杠。
+DRIVE_PATH=&#39;/DRIVEX/Download&#39;</code></pre>
+<ul>
+<li>输入nano /root/.aria2c/aria2.conf打开 Aria2 配置文件进行修改。<pre><code class="nano"># 下载完成后执行的命令
+on-download-complete=/root/.aria2c/upload.sh</code></pre>
+</li>
+<li>重启<br><code>reboot</code></li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li><p>PC端使用请下载AriaNg这个前端管理界面并连接Aria2地址<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/mayswind/AriaNg/releases">https://github.com/mayswind/AriaNg/releases</a></p>
+</li>
+<li><p>手机端可以用微信小程序，界面简洁还自带影视下载添加<br><img src="http://p.ananas.chaoxing.com/star3/origin/ae7ab95e08b39942315fee2baf3a613f.png"></p>
+</li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>离线下载完后脚本会自动删除本地文件，不用担心本地空间占用</li>
+<li>严格按照教程来进行操作不会遇到问题，如果有问题那一定是你自身的问题，请仔细阅读教程中的每一个字。</li>
+<li>如果你对nano编辑器不了解，可以看看这个<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41293827/article/details/106812686">https://blog.csdn.net/weixin_41293827/article/details/106812686</a></li>
+<li>Shell软件推荐免费的<strong>Xshell</strong>，手机端推荐<strong>termius</strong></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Koyang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/archives/aria2.html">http://yoursite.com/archives/aria2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">一只会敲代码的Sheep</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><a class="post-meta__tags" href="/tags/aria2/">aria2</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/tagd.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechatpay.png" target="_blank"><img class="post-qr-code-img" src="/img/wechatpay.png" alt="Wechat"/></a><div class="post-qr-code-desc">Wechat</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="Alipay"/></a><div class="post-qr-code-desc">Alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/linuxhexo.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/hexo.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">linux下搭建Hexo</div></div></a></div><div class="next-post pull-right"><a href="/archives/django2.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">初步更改Django生成网页内容</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/blog.html" title="利用Hexo+Github Pages搭建个人博客"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/hexo.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-11</div><div class="title">利用Hexo+Github Pages搭建个人博客</div></div></a></div><div><a href="/archives/fineincode.html" title="Fine in Codes"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture//20201122195115.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-22</div><div class="title">Fine in Codes</div></div></a></div><div><a href="/archives/Docker.html" title="Docker使用和一些应用安装"><img class="cover" src="https://gitee.com/koyangyang/pictures/raw/master/20200904105944.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-01</div><div class="title">Docker使用和一些应用安装</div></div></a></div><div><a href="/archives/ftp.html" title="如何与电脑无线传输"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture@latest/code.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-13</div><div class="title">如何与电脑无线传输</div></div></a></div><div><a href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-05</div><div class="title">Hexo+Github Actions自动化部署</div></div></a></div><div><a href="/archives/javaexe.html" title="Java打包程序.exe"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/u=875933571,2598587787&fm=26&gp=0.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-09</div><div class="title">Java打包程序.exe</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Koyang</div><div class="author-info__description">分享最近正在研究的东西</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/koyangyang"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/koyangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mr.koyangyang@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://t.me/Koyangyang" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechat.png" target="_blank" title="Wechat"><i class="fab fa-weixin"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1137451142&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请多看看右上角顶栏的不同页面</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E6%9D%90%E6%96%99"><span class="toc-number">1.</span> <span class="toc-text">准备材料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%B9%B6%E9%85%8D%E7%BD%AEaria2"><span class="toc-number">2.</span> <span class="toc-text">安装并配置aria2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%82%E8%BD%BDRclone"><span class="toc-number">3.</span> <span class="toc-text">挂载Rclone</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%88%E6%9D%83"><span class="toc-number">3.1.</span> <span class="toc-text">客户端授权</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Rclone"><span class="toc-number">3.2.</span> <span class="toc-text">安装Rclone</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">5.</span> <span class="toc-text">注意</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序学习(今日天气)"/></a><div class="content"><a class="title" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)">微信小程序学习(今日天气)</a><time datetime="2021-07-12T01:45:49.000Z" title="发表于 2021-07-12 09:45:49">2021-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/wterminal.html" title="Windows Terminal的美化"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/archive.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows Terminal的美化"/></a><div class="content"><a class="title" href="/archives/wterminal.html" title="Windows Terminal的美化">Windows Terminal的美化</a><time datetime="2021-07-11T01:45:49.000Z" title="发表于 2021-07-11 09:45:49">2021-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/pyqt5.html" title="PYQT5的安装配置使用"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PYQT5的安装配置使用"/></a><div class="content"><a class="title" href="/archives/pyqt5.html" title="PYQT5的安装配置使用">PYQT5的安装配置使用</a><time datetime="2021-03-27T13:02:30.000Z" title="发表于 2021-03-27 21:02:30">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+Github Actions自动化部署"/></a><div class="content"><a class="title" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署">Hexo+Github Actions自动化部署</a><time datetime="2021-03-05T02:28:32.000Z" title="发表于 2021-03-05 10:28:32">2021-03-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/javaexe.html" title="Java打包程序.exe"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/u=875933571,2598587787&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java打包程序.exe"/></a><div class="content"><a class="title" href="/archives/javaexe.html" title="Java打包程序.exe">Java打包程序.exe</a><time datetime="2021-01-09T02:28:32.000Z" title="发表于 2021-01-09 10:28:32">2021-01-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Koyang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

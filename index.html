@@ -1,0 +1,390 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>一只会敲代码的Sheep - Koyang'Blog</title><meta name="keywords" content="blog,code"><meta name="author" content="Koyang"><meta name="copyright" content="Koyang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="分享最近正在研究的东西">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一只会敲代码的Sheep">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="一只会敲代码的Sheep">
+<meta property="og:description" content="分享最近正在研究的东西">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg">
+<meta property="article:author" content="Koyang">
+<meta property="article:tag" content="blog,code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="iMDciGxUIK6RfzZylWsqU4HnWGOQMT6YBQLTBiEStss"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b05f9b7e6813b1735ed543d88d9a988a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177280842-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177280842-1');
+</script><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;88165403cab4477eaf518e6ad43cc8f8&quot;}"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-07-13 11:33:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="一只会敲代码的Sheep" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/HandsomeKY/picture@master/1625471362000.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">一只会敲代码的Sheep</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">一只会敲代码的Sheep</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/koyangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mr.koyangyang@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://t.me/Koyangyang" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechat.png" target="_blank" title="Wechat"><i class="fab fa-weixin"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1137451142&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/archives/wxxcx.html" title="微信小程序学习(今日天气)">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序学习(今日天气)"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)">微信小程序学习(今日天气)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-12T01:45:49.000Z" title="发表于 2021-07-12 09:45:49">2021-07-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></span></div><div class="content">这个是记录微信小程序的学习，开发一款今日天气目前完成
+
+获取实时位置信息并显示天气信息
+手动选择位置信息并获取天气
+
+所用api来自和风天气,请自行注册key,代码中的key皆用****表示。
+新建项目打开微信开发工具
+删除所有内容删除初始化所有内容并新建app.json、app.js、app.wxss,在新建的app.json中输入&#123;&#125;并保存。
+新建page在pages/index目录下右键新建page
+文件作用
+js:页面逻辑 (JavaScript)
+json:负责标题栏和一些状态栏
+wxml:管理页面有什么 (html)
+wxss:页面排版 (css)
+
+修改标题栏修改app.json文件，输入window
+编写index.wxml内容相当于编写小程序页面有什么内容
+&lt;view class=&quot;container&quot;&gt;
+      &lt;!-- 区域一 选择器 --&gt;
+    &lt;picker mode=&quot;region&quot; bindchange=&quot;ChangeRegion&quot;&gt; ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/archives/wterminal.html" title="Windows Terminal的美化">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/archive.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows Terminal的美化"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/wterminal.html" title="Windows Terminal的美化">Windows Terminal的美化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-07-11T01:45:49.000Z" title="发表于 2021-07-11 09:45:49">2021-07-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Windows/">Windows</a></span></div><div class="content">Windows Terminal与一般软件的设置界面不同，Windows Terminal 采用 json 文件对 Terminal 进行设置。单击设置，会打开一个settings.json的文件。现在的Windows 10应该会在你点击“设置”后提示你用什么软件来打开json文件。
+Windows Terminal 美化配色方案设置中可以选择预设配置配色和字体，新版加入了可视化设置,可以设置透明度(毛玻璃)
+安装 Powerline 字体下载 Meslo LGM NF 1字体来支持 Oh-my-Posh V3 的特殊符号
+安装 posh-git 以及 oh-my-poshInstall-Module posh-git -Scope CurrentUser
+Install-Module oh-my-posh -Scope CurrentUser
+
+在 PowerShell 中设置 Powerline在 PowerShell 中输入notepad $profile用文本文档打开 PowerShell 配置文件。
+Import-Module posh-git
+Import-Module o ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/archives/pyqt5.html" title="PYQT5的安装配置使用">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PYQT5的安装配置使用"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/pyqt5.html" title="PYQT5的安装配置使用">PYQT5的安装配置使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-27T13:02:30.000Z" title="发表于 2021-03-27 21:02:30">2021-03-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Python/">Python</a></span></div><div class="content">安装PYQT5
+pyqt5安装
+
+
+直接使用pip安装,但是需要SIP的支持,所以先安装SIP,再安装pyqt5pip install sip
+pip install PyQt5
+
+
+
+安装QT Designer
+
+
+同样使用pip安装pip install PyQt5-tools
+
+在Pycharm中配置QT Designer配置QT Designer
+QT Designer默认路径C:\Users\用户名\AppData\Local\Programs\Python\Python38\Lib\site-packages\qt5_applications\Qt\bin
+
+Name：可自己定义 
+Program：指向上述路径里面的designer.exe
+Work directory：使用变量 $FileDir$
+
+
+
+
+
+
+
+配置PyUIC
+
+Name：可自己定义
+Program：指向上述python.exe(默认C:\Users\codeyang\AppData\Local\Programs\Python\Python38\python.exe)
+Arguments: -m PyQt ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+Github Actions自动化部署"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署">Hexo+Github Actions自动化部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-05T02:28:32.000Z" title="发表于 2021-03-05 10:28:32">2021-03-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span></div><div class="content">使用步骤一，import这个仓库点击新建一个仓库，你会在新建仓库页面看到这个Import a repository，点它
+
+然后你会看到如下图的内容
+
+在You old repository&#39;s clone URL下填我这个项目的链接
+https://github.com/FuShaoLei/auto-hexo-template
+然后为了安全起见（或者说是为了隐私起见），将仓库设为private
+都设置完后点击下面那个绿色按钮Begin import即可
+完成时如下
+
+二，根据你的情况修改参数要配置的有
+
+配置公钥和私钥
+.github/workflows/main.yml里的用户名和邮箱
+_config.yml里的root和deploy
+
+下面一一说明
+a.配置公钥和私钥在你的本地ctrl+r输入cmd调出小黑块，输入
+ssh-keygen -t rsa -C &quot;&lt;你的github邮箱&gt;&quot;
+然后在C:\Users\用户名\.ssh中可找到
+
+
+公钥的配置（正常来说应该是配置过了），直接在这个链接点击那个new SSH key就可配置
+私钥的配置 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/archives/javaexe.html" title="Java打包程序.exe">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/u=875933571,2598587787&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java打包程序.exe"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/javaexe.html" title="Java打包程序.exe">Java打包程序.exe</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-01-09T02:28:32.000Z" title="发表于 2021-01-09 10:28:32">2021-01-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">Java编写的程序需要在有jre环境的设备上才能运行，在我们编写完程序后发给别人使用时，不能保证每个人的设备都安装有Java运行环境，所以需要将源码和运行所需要的环境打包成特定的可执行文件，比如Windows平台的可执行文件是.exe。
+新建一个项目目录里面包含file、res、jre;
+
+file:文件夹是放临时文件的可以没有
+res:文件夹是放资源文件的，如图片，配置文件等也可以没有
+jre:这个是必须的，该文件中的内容可以直接把JDK安装目录下jre的内容拷贝过来即可。有了它可以不用再装java运行环境 
+
+将源码导出第一步所需要的是将我们编写的Java整个项目导出成jar包。在IDEA中在项目结构中选取选取主类即可导出jar包
+JRE环境将安装的JRE环境拷贝到项目目录的jre文件夹里，如果不知道可以将整个JRE环境拷贝过来
+下载exe4j工具下载地址
+打开exe4j开始生产.exe文件
+选择JAR in EXE模式
+名字和输出目录随便写
+选GUI applicationExecutable name写的.exe名字Icon File找到要的icon图标
+在class path ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/archives/fineincode.html" title="Fine in Codes">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture//20201122195115.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Fine in Codes"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/fineincode.html" title="Fine in Codes">Fine in Codes</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-22T11:40:32.000Z" title="发表于 2020-11-22 19:40:32">2020-11-22</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Hexo/">Hexo</a></span></div><div class="content">正文
+CodeEnd = &quot;You&quot;
+while End is &quot;You&quot;:
+  print &quot;I wait %s&quot; % End
+
+尽头是你我会一直等
+
+
+
+
+附文经常写爬虫，然后就爱上了response这个单词。有道词典给的翻译是：最理想的状态就像：
+import requests
+
+url = &quot;everything&quot;
+params=&#123;&#125;
+data=&#123;&#125;
+response = requests.get(url,params=params,data=data)
+print(response)
+
+事事有回应，件件有着落
+
+
+
+没有&#39;params&#39;和&#39;data&#39;，依然可以得到回应
+
+
+它的应用场景应是我发消息不会等很久你才会回，和你聊天时你如果有事情要离开会提前告知我并结束话题。我不用花很多时间去等待，也不用花很多心思去猜疑，你给予我良好的反馈，于我亦是一种心安。
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/archives/cpfm.html" title="Clash Premium For Magisk的使用">     <img class="post_bg" src="https://gitee.com/koyangyang/pictures/raw/master/20201011100742.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Clash Premium For Magisk的使用"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/cpfm.html" title="Clash Premium For Magisk的使用">Clash Premium For Magisk的使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-11T01:35:10.000Z" title="发表于 2020-10-11 09:35:10">2020-10-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a></span></div><div class="content">Clash Premium For Magisk的用途Google NB！
+需要文件下载地址Clash_Premium_For_Magisk
+Dashboard
+面具刷入Root后用面具刷入Clash Premium For Magisk/Clash For Magisk
+
+刷入完成后重启这个时候clash就在后台运行了，担心需要termux来开启服务，下面介绍一个Dashboard APP这个图形化控制界面
+Dashboard APP打开Dashboard APP，再点击Premium切换到Premium模式
+
+右上角菜单，选择更新GeoIP，无需输入地址，点击确定来下载GeoIP文件，这是Clash工作所需要的文件。
+再下载config.yml文件
+点击下载订阅，输入clash订阅地址
+下载完订阅地址就重新打开应用，然后开启clash
+
+这个时候就可以上网了
+进阶设置选择本地面板可以加载更快切换YACD面板
+
+关于clash地址
+clash地址一般机场都会提供
+
+自己搭建的服务器，可以使用订阅转换将vmess链接转为clash
+
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/archives/Docker.html" title="Docker使用和一些应用安装">     <img class="post_bg" src="https://gitee.com/koyangyang/pictures/raw/master/20200904105944.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker使用和一些应用安装"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/Docker.html" title="Docker使用和一些应用安装">Docker使用和一些应用安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-09-01T01:06:08.000Z" title="发表于 2020-09-01 09:06:08">2020-09-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Docker/">Docker</a></span></div><div class="content">Docker的基本操作Docker也是目前很火的技术，当我在学习期间，因为学的东西比较多，部署环境很是麻烦，这时候就想把需要的环境搭建在Docker上，而且Docker搭建很是轻松，比如你安装Centos时候只需要几行命令便可以拉取安装，比起传统虚拟机安装方便快速很多，而且可以克隆部署多个。
+Docker的安装
+Ubuntu
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+Debian
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+Centos
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+Docker加速镜像
+编辑vim /etc/docker/daemon.json
+修改&#123;&quot;registry-mirrors&quot;:[&quot;https://reg-mirror.qiniu.com/&quot; ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/archives/Hackintosh.html" title="AMD虚拟机安装MacOS系统">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cage.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AMD虚拟机安装MacOS系统"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/Hackintosh.html" title="AMD虚拟机安装MacOS系统">AMD虚拟机安装MacOS系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-18T14:47:56.000Z" title="发表于 2020-08-18 22:47:56">2020-08-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/MacOS/">MacOS</a></span></div><div class="content">因为有些东西需要用到MacOS系统，而且AMD笔记本的CPU和显卡对黑苹果无法兼容，所以只能使用虚拟机来安装MacOS，记录一下安装过程中遇到的一些坑吧
+首先安装VMware目前测试最新版VMwar15.10不行，VMware15.1可以
+刚安装的VMware是没有支持安装MacOS，需要下载解锁工具解锁后才能选择安装MacOS
+下载解锁工具下载地址
+已管理员身份运行win-install.cmd
+
+到目前为止，VMware就支持安装MacOS了
+创建MacOS解锁完创建就可以创建MacOS系统
+
+编辑.vmx文件打开MacOS虚拟机目录，用编辑打开.vmx文件
+
+smc.version = &quot;0&quot;
+cpuid.0.eax = &quot;0000:0000:0000:0000:0000:0000:0000:1011&quot;
+cpuid.0.ebx = &quot;0111:0101:0110:1110:0110:0101:0100:0111&quot;
+cpuid.0.ecx = &quot;0110:1100:0110:0101:0111:0100:0110 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/archives/data.html" title="数据结构-线性表">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture@latest/cover01.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构-线性表"></a></div><div class="recent-post-info"><a class="article-title" href="/archives/data.html" title="数据结构-线性表">数据结构-线性表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-15T14:28:25.000Z" title="发表于 2020-08-15 22:28:25">2020-08-15</time></span></div><div class="content">单链表
+首先定义一个单链表结构题
+
+
+typedef struct LNode
+&#123;
+  ElemType data;//定义一个自定义类型的变量存放数据
+  LNode *Next;//定义一个指向结构体的指针
+&#125;LNode,*Linklist;//创建一个结构体指针
+*LNode p ==Linklist p
+
+链表的初始化
+
+void init(Linklist &amp;L)
+&#123;
+    L=new LNode;//为L动态分配一块内存空间
+    L-&gt;Next=NULL;//将L的指针域设为空
+&#125;
+
+
+创建链表
+图中是用尾插法构建单链表，头插法还请移步头插法
+void created(Linklist &amp;L)
+&#123;
+    Linklist p=L;//新创建一个p指针指向头节点L
+    for(int i=0;i&lt;20;i++)//循环创建20个节点的单链表
+    &#123;
+        Linklist q=new LNode;//创建一个新的节点，并用q指针指向这个新的节点
+        q ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Koyang</div><div class="author-info__description">分享最近正在研究的东西</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/koyangyang"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/koyangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mr.koyangyang@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://t.me/Koyangyang" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechat.png" target="_blank" title="Wechat"><i class="fab fa-weixin"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1137451142&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请多看看右上角顶栏的不同页面</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序学习(今日天气)"/></a><div class="content"><a class="title" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)">微信小程序学习(今日天气)</a><time datetime="2021-07-12T01:45:49.000Z" title="发表于 2021-07-12 09:45:49">2021-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/wterminal.html" title="Windows Terminal的美化"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/archive.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows Terminal的美化"/></a><div class="content"><a class="title" href="/archives/wterminal.html" title="Windows Terminal的美化">Windows Terminal的美化</a><time datetime="2021-07-11T01:45:49.000Z" title="发表于 2021-07-11 09:45:49">2021-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/pyqt5.html" title="PYQT5的安装配置使用"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PYQT5的安装配置使用"/></a><div class="content"><a class="title" href="/archives/pyqt5.html" title="PYQT5的安装配置使用">PYQT5的安装配置使用</a><time datetime="2021-03-27T13:02:30.000Z" title="发表于 2021-03-27 21:02:30">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+Github Actions自动化部署"/></a><div class="content"><a class="title" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署">Hexo+Github Actions自动化部署</a><time datetime="2021-03-05T02:28:32.000Z" title="发表于 2021-03-05 10:28:32">2021-03-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/javaexe.html" title="Java打包程序.exe"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/u=875933571,2598587787&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java打包程序.exe"/></a><div class="content"><a class="title" href="/archives/javaexe.html" title="Java打包程序.exe">Java打包程序.exe</a><time datetime="2021-01-09T02:28:32.000Z" title="发表于 2021-01-09 10:28:32">2021-01-09</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Django/"><span class="card-category-list-name">Django</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Hexo/"><span class="card-category-list-name">Hexo</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MacOS/"><span class="card-category-list-name">MacOS</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Openwrt/"><span class="card-category-list-name">Openwrt</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">4</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Django/" style="font-size: 1.17em; color: #999c9f">Django</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/Git/" style="font-size: 1.1em; color: #999">Git</a> <a href="/tags/Hackintosh/" style="font-size: 1.1em; color: #999">Hackintosh</a> <a href="/tags/Hexo/" style="font-size: 1.1em; color: #999">Hexo</a> <a href="/tags/Java/" style="font-size: 1.1em; color: #999">Java</a> <a href="/tags/Linux/" style="font-size: 1.37em; color: #99a4b2">Linux</a> <a href="/tags/MacOS/" style="font-size: 1.1em; color: #999">MacOS</a> <a href="/tags/Markdown/" style="font-size: 1.1em; color: #999">Markdown</a> <a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/Test/" style="font-size: 1.1em; color: #999">Test</a> <a href="/tags/Wiki/" style="font-size: 1.43em; color: #99a6b9">Wiki</a> <a href="/tags/Windows/" style="font-size: 1.17em; color: #999c9f">Windows</a> <a href="/tags/aria2/" style="font-size: 1.1em; color: #999">aria2</a> <a href="/tags/code/" style="font-size: 1.1em; color: #999">code</a> <a href="/tags/hexo/" style="font-size: 1.3em; color: #99a1ac">hexo</a> <a href="/tags/openwrt/" style="font-size: 1.1em; color: #999">openwrt</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" style="font-size: 1.1em; color: #999">内网穿透</a> <a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 1.23em; color: #999ea6">分享</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 1.1em; color: #999">微信小程序</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.5em; color: #99a9bf">教程</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.17em; color: #999c9f">爬虫</a> <a href="/tags/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/" style="font-size: 1.3em; color: #99a1ac">网站搭建</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/07/"><span class="card-archive-list-date">七月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">11</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">33</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-07-13T03:33:45.572Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Koyang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function subtitleType () {
+  getScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js').then(() => {
+    jinrishici.load(function (result) {
+      if (true) {
+        var sub = "一蓑烟雨任平生".length == 0 ? new Array() : "一蓑烟雨任平生".split(',')
+        var content = result.data.content
+        var both = sub.unshift(content)
+        var typed = new Typed('#subtitle', {
+          strings: sub,
+          startDelay: 300,
+          typeSpeed: 150,
+          loop: true,
+          backSpeed: 50,
+        })
+      } else {
+        document.getElementById('subtitle').innerHTML = result.data.content
+      }
+    })
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

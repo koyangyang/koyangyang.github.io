@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hxeo插件安装/卸载/推荐 | 一只会敲代码的Sheep</title><meta name="keywords" content="hexo,网站搭建"><meta name="author" content="Koyang"><meta name="copyright" content="Koyang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在搭建完利用Github Pages+Hexo搭建完自己的个人博客网站后，需要一些各式各样的插件来实现优化和丰富网站功能的插件，接下来介绍如何安装和卸载hexo的插件，以及一些好用的插件推荐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hxeo插件安装&#x2F;卸载&#x2F;推荐">
+<meta property="og:url" content="http://yoursite.com/archives/hexo-plug.html">
+<meta property="og:site_name" content="一只会敲代码的Sheep">
+<meta property="og:description" content="在搭建完利用Github Pages+Hexo搭建完自己的个人博客网站后，需要一些各式各样的插件来实现优化和丰富网站功能的插件，接下来介绍如何安装和卸载hexo的插件，以及一些好用的插件推荐">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/hexo.jpg">
+<meta property="article:published_time" content="2020-06-26T10:18:44.000Z">
+<meta property="article:modified_time" content="2021-07-13T03:33:10.589Z">
+<meta property="article:author" content="Koyang">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="网站搭建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/hexo.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/archives/hexo-plug"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="iMDciGxUIK6RfzZylWsqU4HnWGOQMT6YBQLTBiEStss"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b05f9b7e6813b1735ed543d88d9a988a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177280842-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177280842-1');
+</script><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;88165403cab4477eaf518e6ad43cc8f8&quot;}"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-13 11:33:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="一只会敲代码的Sheep" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/HandsomeKY/picture/hexo.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">一只会敲代码的Sheep</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hxeo插件安装/卸载/推荐</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-06-26T10:18:44.000Z" title="发表于 2020-06-26 18:18:44">2020-06-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-13T03:33:10.589Z" title="更新于 2021-07-13 11:33:10">2021-07-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Hexo/">Hexo</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>在搭建完利用Github Pages+Hexo搭建完自己的个人博客网站后，需要一些各式各样的插件来实现优化和丰富网站功能的插件，接下来介绍如何安装和卸载hexo的插件，以及一些好用的插件推荐</p>
+<a id="more"></a>
+
+<h2 id="安装-卸载插件"><a href="#安装-卸载插件" class="headerlink" title="安装/卸载插件"></a>安装/卸载插件</h2><h3 id="安装插件命令"><a href="#安装插件命令" class="headerlink" title="安装插件命令"></a>安装插件命令</h3><p>安装命令一般为：</p>
+<pre><code class="Git">npm install 插件名 --save</code></pre>
+<p>比如：<br><img src="https://raw.githubusercontent.com/HandsomeKY/picture/master/hexo-plug-1.png"></p>
+<h3 id="卸载命令"><a href="#卸载命令" class="headerlink" title="卸载命令"></a>卸载命令</h3><p>打开Git Base，输入</p>
+<pre><code class="Git">npm list</code></pre>
+<p><img src="https://raw.githubusercontent.com/HandsomeKY/picture/master/hexo-plug-3.png"><br>找到要删除插件的名字输入命令：</p>
+<pre><code class="Git">npm uninstall 插件名即可</code></pre>
+<h2 id="推荐插件"><a href="#推荐插件" class="headerlink" title="推荐插件"></a>推荐插件</h2><h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><p><strong>hexo-prism-plugin</strong> 的 Hexo 插件来做代码高亮，安装命令如下：</p>
+<pre><code class="npm">npm i -S hexo-prism-plugin</code></pre>
+<p>然后，修改 Hexo 根目录下 _config.yml 文件中 highlight.enable 的值为 false，并新增 prism 插件相关的配置，主要配置如下：</p>
+<pre><code class="YAML">prism_plugin:
+  mode: &#39;preprocess&#39;    # realtime/preprocess
+  theme: &#39;tomorrow&#39;     #主题选项
+  line_number: false    # default false
+  custom_css:</code></pre>
+<p>可用的主题有</p>
+<blockquote>
+<p>coy,dark,funky,okaidia,solarizedlight,tomorrow,twilight,a11y-dark,atom-dark,base16-ateliersulphurpool.light,cb,darcula,dracula,duotone-dark,duotone-earth,duotone-forest,duotone-light,duotone-sea,duotone-space,ghcolors,hopscotch,material-dark,material-light,material-oceanic,pojoaque,shades-of-purple,synthwave84,vs,xonokai,default</p>
+</blockquote>
+<p>具体样式还转移到这里观看：<a target="_blank" rel="noopener" href="https://github.com/PrismJS/prism-themes#available-themes">传送门</a></p>
+<h3 id="搜索插件"><a href="#搜索插件" class="headerlink" title="搜索插件"></a>搜索插件</h3><p><a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search">hexo-generator-search</a> 的 Hexo 插件来做内容搜索，安装命令如下：</p>
+<pre><code class="npm">npm install hexo-generator-search --save</code></pre>
+<h3 id="中文链接转拼音"><a href="#中文链接转拼音" class="headerlink" title="中文链接转拼音"></a>中文链接转拼音</h3><p>如果你的文章名称是中文的，那么 Hexo 默认生成的永久链接也会有中文，这样不利于SEO，且 gitment 评论对中文链接也不支持。我们可以用 hexo-permalink-pinyin Hexo 插件使在生成文章时生成中文拼音的永久链接。<br>安装命令如下：</p>
+<pre><code class="npm">npm i hexo-permalink-pinyin --save</code></pre>
+<p>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
+<pre><code class="YAML">permalink_pinyin:
+  enable: true
+  separator: &#39;-&#39; # default: &#39;-&#39;</code></pre>
+<blockquote>
+<p>注：除了此插件外，<a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a>插件也可以生成非中文的链接。</p>
+</blockquote>
+<h3 id="文章字数统计插件"><a href="#文章字数统计插件" class="headerlink" title="文章字数统计插件"></a>文章字数统计插件</h3><p>在文章中显示文章字数、阅读时长信息，可以安装 <a target="_blank" rel="noopener" href="https://github.com/willin/hexo-wordcount">hexo-wordcount</a>插件。<br>安装命令如下：</p>
+<pre><code class="npm">npm i --save hexo-wordcount</code></pre>
+<p>然后在主题下的 _config.yml 文件中，将各个文章字数相关的配置激活即可：</p>
+<pre><code class="YAML">postInfo:
+  date: true
+  update: false
+  wordCount: false # 设置文章字数统计为 true.
+  totalCount: false # 设置站点文章总字数统计为 true.
+  min2read: false # 阅读时长.
+  readCount: false # 阅读次数.</code></pre>
+<h3 id="添加emoji表情支持"><a href="#添加emoji表情支持" class="headerlink" title="添加emoji表情支持"></a>添加emoji表情支持</h3><p>本主题新增了对emoji表情的支持，使用到了 hexo-filter-github-emojis 的 Hexo 插件来支持 emoji表情的生成，把对应的markdown emoji语法（::,例如：:smile:）转变成会跳跃的emoji表情，安装命令如下：</p>
+<pre><code class="npm">npm install hexo-filter-github-emojis --save</code></pre>
+<p>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
+<pre><code class="YAML">githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:</code></pre>
+<h3 id="添加-RSS-订阅支持"><a href="#添加-RSS-订阅支持" class="headerlink" title="添加 RSS 订阅支持"></a>添加 RSS 订阅支持</h3><p>本主题中还使用到了 hexo-generator-feed 的 Hexo 插件来做 RSS，安装命令如下：</p>
+<pre><code class="npm">npm install hexo-generator-feed --save</code></pre>
+<p>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
+<pre><code class="YAML">feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: &#39; &#39;
+  order_by: -date</code></pre>
+<p><strong>执行 hexo clean &amp;&amp; hexo g 重新生成博客文件，然后在 public 文件夹中即可看到 atom.xml 文件，说明你已经安装成功了。</strong></p>
+<h3 id="生成网站地图"><a href="#生成网站地图" class="headerlink" title="生成网站地图"></a>生成网站地图</h3><p>我们需要使用npm自动生成网站的sitemap，然后将生成的sitemap提交到百度和其他搜索引擎<br>安装sitemap插件如下:</p>
+<pre><code class="bash">npm install hexo-generator-sitemap --save     
+npm install hexo-generator-baidu-sitemap --save</code></pre>
+<p>修改博客配置文件<br>在根目录配置文件.yml中修改url为你的站点地址</p>
+<pre><code class="YAML"># URL
+# If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;
+# url: https://www.zdyn.cn/
+url: https://www.zdynb.cn
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:</code></pre>
+<p>执行完hexo g命令之后就会在网站根目录生成sitemap.xml文件和baidusitemap.xml文件，可以通过：<a target="_blank" rel="noopener" href="https://www.zdynb.cn/baidusitemap.xml">https://www.zdynb.cn/baidusitemap.xml</a>, 查看该文件是否生成，其中sitemap.xml文件是搜索引擎通用的文件，baidusitemap.xml是百度专用的sitemap文件。</p>
+<h3 id="设置主动推送"><a href="#设置主动推送" class="headerlink" title="设置主动推送"></a>设置主动推送</h3><p>安装插件hexo-baidu-url-submit</p>
+<pre><code class="bash">npm install hexo-baidu-url-submit --save</code></pre>
+<p>然后再根目录的配置文件中新增字段</p>
+<pre><code class="YAML">baidu_url_submit:
+  count: 80             # 提交最新链接数量
+  host: www.zdynb.cn    # 在百度站长平台中注册的域名
+  token: xxxxxxxxxxxxxx # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt  # 文本文档的地址， 新链接会保存在此文本文档里</code></pre>
+<h3 id="设置自动推送"><a href="#设置自动推送" class="headerlink" title="设置自动推送"></a>设置自动推送</h3><p>在主题配置文件下设置,将baidu_push设置为true:</p>
+<pre><code class="yml"># Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
+baidu_push: true</code></pre>
+<p>然后主题文件目录加入下面代码，一般在目录/themes/matery/layout/_partial中的head.ejs中加入下面JS代码（有可能你的目录不是这样，原理类似），这样全站都有了：</p>
+<pre><code class="js">&lt;% if (theme.baidu_push) &#123; %&gt;
+    &lt;script&gt;
+        (function()&#123;
+            var bp = document.createElement(&#39;script&#39;);
+            var curProtocol = window.location.protocol.split(&#39;:&#39;)[0];
+            if (curProtocol === &#39;https&#39;) &#123;
+                bp.src = &#39;https://zz.bdstatic.com/linksubmit/push.js&#39;;        
+            &#125;
+            else &#123;
+                bp.src = &#39;http://push.zhanzhang.baidu.com/push.js&#39;;
+            &#125;
+            var s = document.getElementsByTagName(&quot;script&quot;)[0];
+            s.parentNode.insertBefore(bp, s);
+        &#125;)();
+    &lt;/script&gt;
+&lt;% &#125; %&gt; </code></pre>
+<h3 id="提交-robots-txt"><a href="#提交-robots-txt" class="headerlink" title="提交 robots.txt:"></a>提交 robots.txt:</h3><p>robots.txt 是一种存放于网站根目录下的 ASCII 编码的文本文件，它的作用是告诉搜索引擎此网站中哪些内容是可以被爬取的，哪些是禁止爬取的。robots.txt 放在博客目录下的 source 文件夹中，博客生成后在站点目录 /public/ 下。</p>
+<p>我的 robots.txt 文件内容如下：</p>
+<pre><code class="txt">User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /about/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/</code></pre>
+<p>robots.txt 文件更新至网站后可进入 Google Search Console - 抓取 - robots.txt 测试工具进行测试。</p>
+<h3 id="修改hexo的url"><a href="#修改hexo的url" class="headerlink" title="修改hexo的url"></a>修改hexo的url</h3><p>SEO搜索引擎优化认为，网站的最佳结构是用户从首页点击三次就可以到达任何一个页面，但是我们使用hexo编译的站点打开文章的url是：sitename/year/mounth/day/title四层的结构，这样的url结构很不利于seo，爬虫就会经常爬不到我们的文章，于是，我们需要优化一下网站文章url</p>
+<p>安装hexo-abbrlink:</p>
+<pre><code class="npm">npm install hexo-abbrlink --save</code></pre>
+<p>配置博客根目录下的_config.yml文件:</p>
+<pre><code class="YAML"># permalink: :title/
+permalink: archives/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex</code></pre>
+<p>修改前：</p>
+<p><img src="https://raw.githubusercontent.com/HandsomeKY/picture/master/hexo-plug-2.png"></p>
+<p>修改后：<br><img src="https://raw.githubusercontent.com/HandsomeKY/picture/master/hexo-plugs-4.png"><br>这样就更有利于百度、Google的搜索收录。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>Hexo有丰富的插件和各式各样的主题，如果有更好的主题和插件可以评论或者私信我补充上去，持续更新</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Koyang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/archives/hexo-plug.html">http://yoursite.com/archives/hexo-plug.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">一只会敲代码的Sheep</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/hexo/">hexo</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/">网站搭建</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/hexo.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechatpay.png" target="_blank"><img class="post-qr-code-img" src="/img/wechatpay.png" alt="Wechat"/></a><div class="post-qr-code-desc">Wechat</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="Alipay"/></a><div class="post-qr-code-desc">Alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/archives/python-1.html"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/tagd.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">记录一下学习Python</div></div></a></div><div class="next-post pull-right"><a href="/archives/askquestions.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cage.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">《提问的智慧》</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/archives/blog.html" title="利用Hexo+Github Pages搭建个人博客"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/hexo.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-11</div><div class="title">利用Hexo+Github Pages搭建个人博客</div></div></a></div><div><a href="/archives/fineincode.html" title="Fine in Codes"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture//20201122195115.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-22</div><div class="title">Fine in Codes</div></div></a></div><div><a href="/archives/hexo.html" title="谈谈自己的建站经历"><img class="cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/hexo.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-01</div><div class="title">谈谈自己的建站经历</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Koyang</div><div class="author-info__description">分享最近正在研究的东西</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/koyangyang"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/koyangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mr.koyangyang@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://t.me/Koyangyang" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechat.png" target="_blank" title="Wechat"><i class="fab fa-weixin"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1137451142&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请多看看右上角顶栏的不同页面</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-%E5%8D%B8%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">安装&#x2F;卸载插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">安装插件命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BD%E5%91%BD%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text">卸载命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E6%8F%92%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">推荐插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE"><span class="toc-number">2.1.</span> <span class="toc-text">代码高亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E6%8F%92%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">搜索插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E9%93%BE%E6%8E%A5%E8%BD%AC%E6%8B%BC%E9%9F%B3"><span class="toc-number">2.3.</span> <span class="toc-text">中文链接转拼音</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E6%8F%92%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">文章字数统计插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0emoji%E8%A1%A8%E6%83%85%E6%94%AF%E6%8C%81"><span class="toc-number">2.5.</span> <span class="toc-text">添加emoji表情支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0-RSS-%E8%AE%A2%E9%98%85%E6%94%AF%E6%8C%81"><span class="toc-number">2.6.</span> <span class="toc-text">添加 RSS 订阅支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E7%BD%91%E7%AB%99%E5%9C%B0%E5%9B%BE"><span class="toc-number">2.7.</span> <span class="toc-text">生成网站地图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%BB%E5%8A%A8%E6%8E%A8%E9%80%81"><span class="toc-number">2.8.</span> <span class="toc-text">设置主动推送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E6%8E%A8%E9%80%81"><span class="toc-number">2.9.</span> <span class="toc-text">设置自动推送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4-robots-txt"><span class="toc-number">2.10.</span> <span class="toc-text">提交 robots.txt:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9hexo%E7%9A%84url"><span class="toc-number">2.11.</span> <span class="toc-text">修改hexo的url</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">3.</span> <span class="toc-text">后记</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序学习(今日天气)"/></a><div class="content"><a class="title" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)">微信小程序学习(今日天气)</a><time datetime="2021-07-12T01:45:49.000Z" title="发表于 2021-07-12 09:45:49">2021-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/wterminal.html" title="Windows Terminal的美化"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/archive.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows Terminal的美化"/></a><div class="content"><a class="title" href="/archives/wterminal.html" title="Windows Terminal的美化">Windows Terminal的美化</a><time datetime="2021-07-11T01:45:49.000Z" title="发表于 2021-07-11 09:45:49">2021-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/pyqt5.html" title="PYQT5的安装配置使用"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PYQT5的安装配置使用"/></a><div class="content"><a class="title" href="/archives/pyqt5.html" title="PYQT5的安装配置使用">PYQT5的安装配置使用</a><time datetime="2021-03-27T13:02:30.000Z" title="发表于 2021-03-27 21:02:30">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+Github Actions自动化部署"/></a><div class="content"><a class="title" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署">Hexo+Github Actions自动化部署</a><time datetime="2021-03-05T02:28:32.000Z" title="发表于 2021-03-05 10:28:32">2021-03-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/javaexe.html" title="Java打包程序.exe"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/u=875933571,2598587787&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java打包程序.exe"/></a><div class="content"><a class="title" href="/archives/javaexe.html" title="Java打包程序.exe">Java打包程序.exe</a><time datetime="2021-01-09T02:28:32.000Z" title="发表于 2021-01-09 10:28:32">2021-01-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Koyang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

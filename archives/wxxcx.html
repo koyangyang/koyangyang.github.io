@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>微信小程序学习(今日天气) | 一只会敲代码的Sheep</title><meta name="keywords" content="微信小程序"><meta name="author" content="Koyang"><meta name="copyright" content="Koyang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这个是记录微信小程序的学习，开发一款今日天气目前完成  获取实时位置信息并显示天气信息 手动选择位置信息并获取天气  所用api来自和风天气,请自行注册key,代码中的key皆用****表示。 新建项目打开微信开发工具 删除所有内容删除初始化所有内容并新建app.json、app.js、app.wxss,在新建的app.json中输入&amp;#123;&amp;#125;并保存。 新建page在pages&#x2F;in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序学习(今日天气)">
+<meta property="og:url" content="http://yoursite.com/archives/wxxcx.html">
+<meta property="og:site_name" content="一只会敲代码的Sheep">
+<meta property="og:description" content="这个是记录微信小程序的学习，开发一款今日天气目前完成  获取实时位置信息并显示天气信息 手动选择位置信息并获取天气  所用api来自和风天气,请自行注册key,代码中的key皆用****表示。 新建项目打开微信开发工具 删除所有内容删除初始化所有内容并新建app.json、app.js、app.wxss,在新建的app.json中输入&amp;#123;&amp;#125;并保存。 新建page在pages&#x2F;in">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg">
+<meta property="article:published_time" content="2021-07-12T01:45:49.000Z">
+<meta property="article:modified_time" content="2021-07-13T03:33:10.589Z">
+<meta property="article:author" content="Koyang">
+<meta property="article:tag" content="微信小程序">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/archives/wxxcx"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//static.cloudflareinsights.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="iMDciGxUIK6RfzZylWsqU4HnWGOQMT6YBQLTBiEStss"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b05f9b7e6813b1735ed543d88d9a988a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177280842-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177280842-1');
+</script><script defer="defer" data-pjax="data-pjax" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;88165403cab4477eaf518e6ad43cc8f8&quot;}"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-07-13 11:33:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="一只会敲代码的Sheep" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">一只会敲代码的Sheep</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://music.koyang.icu/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://share.koyang.icu/"><i class="fa-fw fas fa-video"></i><span> 文件</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/text/"><i class="fa-fw fas fa-envelope-open-text"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page" href="/atom.xml"><i class="fa-fw fas fa-rss"></i><span> RSS</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">微信小程序学习(今日天气)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-07-12T01:45:49.000Z" title="发表于 2021-07-12 09:45:49">2021-07-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-07-13T03:33:10.589Z" title="更新于 2021-07-13 11:33:10">2021-07-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>这个是记录微信小程序的学习，开发一款今日天气<br>目前完成</p>
+<ul>
+<li>获取实时位置信息并显示天气信息</li>
+<li>手动选择位置信息并获取天气</li>
+</ul>
+<p>所用<code>api</code>来自和风天气,请自行注册<code>key</code>,代码中的<code>key</code>皆用<code>****</code>表示。</p>
+<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>打开微信开发工具<br><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/20210712083155.png"></p>
+<h2 id="删除所有内容"><a href="#删除所有内容" class="headerlink" title="删除所有内容"></a>删除所有内容</h2><p>删除初始化所有内容并新建<code>app.json</code>、<code>app.js</code>、<code>app.wxss</code>,在新建的<code>app.json</code>中输入<code>&#123;&#125;</code>并保存。</p>
+<h2 id="新建page"><a href="#新建page" class="headerlink" title="新建page"></a>新建page</h2><p>在<code>pages/index</code>目录下右键新建<code>page</code><br><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/20210712084526.png"></p>
+<h2 id="文件作用"><a href="#文件作用" class="headerlink" title="文件作用"></a>文件作用</h2><ul>
+<li>js:页面逻辑 (JavaScript)</li>
+<li>json:负责标题栏和一些状态栏</li>
+<li>wxml:管理页面有什么 (html)</li>
+<li>wxss:页面排版 (css)</li>
+</ul>
+<h2 id="修改标题栏"><a href="#修改标题栏" class="headerlink" title="修改标题栏"></a>修改标题栏</h2><p>修改<code>app.json</code>文件，输入<code>window</code><br><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/20210712100817.png"></p>
+<h2 id="编写index-wxml内容"><a href="#编写index-wxml内容" class="headerlink" title="编写index.wxml内容"></a>编写<code>index.wxml</code>内容</h2><p>相当于编写小程序页面有什么内容</p>
+<pre><code class="html">&lt;view class=&quot;container&quot;&gt;
+      &lt;!-- 区域一 选择器 --&gt;
+    &lt;picker mode=&quot;region&quot; bindchange=&quot;ChangeRegion&quot;&gt;
+      &lt;view&gt;&#123;&#123;region&#125;&#125;&lt;/view&gt;
+    &lt;/picker&gt;
+      &lt;!-- 区域二 文本区 --&gt;
+    &lt;text&gt;&#123;&#123;now.temp&#125;&#125; ℃ &#123;&#123;now.text&#125;&#125;&lt;/text&gt;
+      &lt;!--区域三 图片  --&gt;
+      &lt;image src=&quot;../../images/&#123;&#123;now.icon&#125;&#125;.png&quot;&gt;&lt;/image&gt;
+      &lt;!-- 区域四 天气信息 --&gt;
+      &lt;view class=&quot;detail&quot;&gt;
+          &lt;view class=&quot;bar&quot;&gt;
+              &lt;view class=&quot;box&quot;&gt;湿度&lt;/view&gt;
+              &lt;view class=&quot;box&quot;&gt;气压&lt;/view&gt;
+              &lt;view class=&quot;box&quot;&gt;能见度&lt;/view&gt;
+          &lt;/view&gt;
+          &lt;view class=&quot;bar&quot;&gt;
+            &lt;view class=&quot;box&quot;&gt;&#123;&#123;now.humidity&#125;&#125; %&lt;/view&gt;
+            &lt;view class=&quot;box&quot;&gt;&#123;&#123;now.pressure&#125;&#125; hPa&lt;/view&gt;
+            &lt;view class=&quot;box&quot;&gt;&#123;&#123;now.vis&#125;&#125; Km&lt;/view&gt;
+          &lt;/view&gt;
+          &lt;view class=&quot;bar&quot;&gt;
+            &lt;view class=&quot;box&quot;&gt;风向&lt;/view&gt;
+            &lt;view class=&quot;box&quot;&gt;风速&lt;/view&gt;
+            &lt;view class=&quot;box&quot;&gt;风力&lt;/view&gt;
+          &lt;/view&gt;
+          &lt;view class=&quot;bar&quot;&gt;
+            &lt;view class=&quot;box&quot;&gt;&#123;&#123;now.windDir&#125;&#125;&lt;/view&gt;
+            &lt;view class=&quot;box&quot;&gt;&#123;&#123;now.windSpeed&#125;&#125; Km/h&lt;/view&gt;
+            &lt;view class=&quot;box&quot;&gt;&#123;&#123;now.windScale&#125;&#125; 级&lt;/view&gt;
+          &lt;/view&gt;
+      &lt;/view&gt;
+&lt;/view&gt;</code></pre>
+<h2 id="编写逻辑代码index-js"><a href="#编写逻辑代码index-js" class="headerlink" title="编写逻辑代码index.js"></a>编写逻辑代码<code>index.js</code></h2><pre><code class="js">Page(&#123;
+  data: &#123;
+      region:[&quot;北京市&quot;,&quot;北京市&quot;,&quot;东城区&quot;],
+      location:&quot;&quot;,
+      now:&#123;&quot;icon&quot;:999&#125;
+  &#125;,
+  onLoad:function()&#123;
+      this.getnowlocation();
+  &#125;,
+  ChangeRegion:function(e)&#123;
+    this.setData(&#123;
+      region:e.detail.value
+    &#125;)
+    this.getLocation()
+  &#125;,
+  getLocation:function()&#123;
+    var that=this; 
+      wx.request(&#123; 
+        url: &#39;https://geoapi.qweather.com/v2/city/lookup?&#39;, 
+        data:&#123; 
+          key:&#39;****&#39;, 
+          location:that.data.region[2] 
+        &#125;, 
+        success:function(res)&#123; 
+          that.setData(&#123;location:res.data.location[0].id&#125;); 
+          that.getWeather(); 
+         &#125;
+        &#125;)
+      &#125;,
+  getnowlocation:function()&#123;
+    var that=this;
+    wx.getLocation(&#123;
+      type:&#39;wgs84&#39;,
+      success (res) &#123;
+        that.setData(&#123;location:res.longitude+&quot;,&quot;+res.latitude&#125;)
+        that.setCity();
+        that.getWeather();
+        &#125;
+    &#125;)
+  &#125;,
+  setCity:function()&#123;
+    var that=this;
+    wx.request(&#123;
+      url: &#39;https://geoapi.qweather.com/v2/city/lookup?&#39;,
+      data:&#123;
+        key:&#39;****&#39;,
+        location:that.data.location
+      &#125;,
+      success:function(res)&#123;
+        console.log(res.data.location[0])
+        that.setData(&#123;
+          region:[res.data.location[0].adm1,res.data.location[0].adm2,res.data.location[0].name]
+        &#125;)
+      &#125;
+    &#125;)
+  &#125;,
+  getWeather:function()&#123;
+      var that=this;
+      wx.request(&#123;
+        url: &#39;https://devapi.qweather.com/v7/weather/now?&#39;,
+        data:&#123;
+          key:&#39;****&#39;,
+          location:that.data.location
+        &#125;,
+        success:function(res)&#123;
+           that.setData(&#123;now:res.data.now&#125;)
+        &#125;
+      &#125;)
+  &#125;
+&#125;)</code></pre>
+<h2 id="编写排版文件index-wxss"><a href="#编写排版文件index-wxss" class="headerlink" title="编写排版文件index.wxss"></a>编写排版文件<code>index.wxss</code></h2><pre><code class="css">.container&#123;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+&#125;
+.detail&#123;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+&#125;
+.bar&#123;
+  margin: 20rpx 0;
+  display: flex;
+  flex-direction: row;
+&#125;
+.box&#123;
+  width: 33.3%;
+  text-align: center;
+&#125;</code></pre>
+<h2 id="最终样式"><a href="#最终样式" class="headerlink" title="最终样式"></a>最终样式</h2><p>加入了打开时获取当前位置信息，需要授权位置信息获取权限，稍后可以手动选择查询位置<br><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/20210713112518.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Koyang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/archives/wxxcx.html">http://yoursite.com/archives/wxxcx.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">一只会敲代码的Sheep</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechatpay.png" target="_blank"><img class="post-qr-code-img" src="/img/wechatpay.png" alt="Wechat"/></a><div class="post-qr-code-desc">Wechat</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="Alipay"/></a><div class="post-qr-code-desc">Alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/archives/wterminal.html"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/archive.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Windows Terminal的美化</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Koyang</div><div class="author-info__description">分享最近正在研究的东西</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">24</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/koyangyang"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/koyangyang" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mr.koyangyang@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fas fa-rss"></i></a><a class="social-icon" href="https://t.me/Koyangyang" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a class="social-icon" href="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/wechat.png" target="_blank" title="Wechat"><i class="fab fa-weixin"></i></a><a class="social-icon" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1137451142&amp;site=qq&amp;menu=yes" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">请多看看右上角顶栏的不同页面</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">新建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">删除所有内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BApage"><span class="toc-number">3.</span> <span class="toc-text">新建page</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BD%9C%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">文件作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%A0%87%E9%A2%98%E6%A0%8F"><span class="toc-number">5.</span> <span class="toc-text">修改标题栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99index-wxml%E5%86%85%E5%AE%B9"><span class="toc-number">6.</span> <span class="toc-text">编写index.wxml内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E9%80%BB%E8%BE%91%E4%BB%A3%E7%A0%81index-js"><span class="toc-number">7.</span> <span class="toc-text">编写逻辑代码index.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E6%8E%92%E7%89%88%E6%96%87%E4%BB%B6index-wxss"><span class="toc-number">8.</span> <span class="toc-text">编写排版文件index.wxss</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%BB%88%E6%A0%B7%E5%BC%8F"><span class="toc-number">9.</span> <span class="toc-text">最终样式</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序学习(今日天气)"/></a><div class="content"><a class="title" href="/archives/wxxcx.html" title="微信小程序学习(今日天气)">微信小程序学习(今日天气)</a><time datetime="2021-07-12T01:45:49.000Z" title="发表于 2021-07-12 09:45:49">2021-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/wterminal.html" title="Windows Terminal的美化"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/archive.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows Terminal的美化"/></a><div class="content"><a class="title" href="/archives/wterminal.html" title="Windows Terminal的美化">Windows Terminal的美化</a><time datetime="2021-07-11T01:45:49.000Z" title="发表于 2021-07-11 09:45:49">2021-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/pyqt5.html" title="PYQT5的安装配置使用"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PYQT5的安装配置使用"/></a><div class="content"><a class="title" href="/archives/pyqt5.html" title="PYQT5的安装配置使用">PYQT5的安装配置使用</a><time datetime="2021-03-27T13:02:30.000Z" title="发表于 2021-03-27 21:02:30">2021-03-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/cover.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo+Github Actions自动化部署"/></a><div class="content"><a class="title" href="/archives/hexoaction.html" title="Hexo+Github Actions自动化部署">Hexo+Github Actions自动化部署</a><time datetime="2021-03-05T02:28:32.000Z" title="发表于 2021-03-05 10:28:32">2021-03-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/archives/javaexe.html" title="Java打包程序.exe"><img src="https://cdn.jsdelivr.net/gh/HandsomeKY/picture/u=875933571,2598587787&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java打包程序.exe"/></a><div class="content"><a class="title" href="/archives/javaexe.html" title="Java打包程序.exe">Java打包程序.exe</a><time datetime="2021-01-09T02:28:32.000Z" title="发表于 2021-01-09 10:28:32">2021-01-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Koyang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
